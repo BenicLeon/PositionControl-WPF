@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="PositionControl.Views.AdminView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PositionControl.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel Margin="20">
+        
+        <TextBlock Text="Users" FontWeight="Bold" FontSize="16"/>
+        <DataGrid ItemsSource="{Binding Users}" 
+                      SelectedItem="{Binding SelectedUser}" 
+                      AutoGenerateColumns="False" Height="200">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}" />
+                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" />
+                <DataGridTextColumn Header="Username" Binding="{Binding Username}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        
+        <TextBlock Text="Assigned Position" FontWeight="Bold" FontSize="16" Margin="0,20,0,0"/>
+        <TextBlock Text="{Binding AssignedPosition.WorkPosition.PositionName}" />
+        <TextBlock Text="{Binding AssignedPosition.AssignDate}" />
+
+        
+        <TextBlock Text="Assign New Position" FontWeight="Bold" FontSize="16" Margin="0,20,0,0"/>
+        <ComboBox ItemsSource="{Binding Positions}" 
+                      SelectedItem="{Binding SelectedPosition}" 
+                      DisplayMemberPath="PositionName" />
+
+        <Button Content="Assign Position" 
+                    Command="{Binding AssignPositionCommand}" 
+                    IsEnabled="{Binding Path=CanAssignPosition}" 
+                    Margin="0,10,0,0" />
+
+        
+        <Button Content="Create New User" 
+                    Command="{Binding CreateUserCommand}" 
+                    Margin="0,10,0,0" />
+    </StackPanel>
+</UserControl>
