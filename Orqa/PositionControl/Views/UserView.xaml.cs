@@ -22,6 +22,7 @@ namespace PositionControl.Views
     {
         public UserView()
         {
+            
             InitializeComponent();
             DataContext = new ViewModels.UserViewModel();
         }

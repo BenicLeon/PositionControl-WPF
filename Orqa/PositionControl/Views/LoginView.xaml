@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:PositionControl.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="20 0 20 0 ">
+
+    <Grid Margin="20" MaxWidth="400" VerticalAlignment="Center" HorizontalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
@@ -14,28 +15,59 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0"
-                 Margin="0 50 0 0 "
-                FontSize="24"
-                FontWeight="Bold"
-                Text="Username" />
-        <TextBox Grid.Row="1"
-         Margin="0 20 0 0 "
-        FontSize="24"
-        FontWeight="Bold"
-        Text="{Binding Username}" />
-        <TextBlock Grid.Row="2"
-         Margin="0 50 0 0 "
-        FontSize="24"
-        FontWeight="Bold"
-        Text="Password" />
-        <TextBox Grid.Row="3"
- Margin="0 20 0 0 "
-FontSize="24"
-FontWeight="Bold"
-Text="{Binding Password}" />
 
-        <Button Grid.Row="4" Margin="600,20,60,0" Padding="10" Content="Login" FontSize="24" Command="{Binding LoginCommand}"
-                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
-        </Grid>
+        
+        <TextBlock Grid.Row="0"
+                   Margin="0 10 0 0"
+                   FontSize="20"
+                   FontWeight="SemiBold"
+                   Text="Username" 
+                   HorizontalAlignment="Left" />
+
+        
+        <TextBox Grid.Row="1"
+                 Margin="0 10 0 0"
+                 FontSize="18"
+                 Padding="10"
+                 Text="{Binding Username}"
+                 VerticalContentAlignment="Center"
+                 BorderBrush="LightGray"
+                 BorderThickness="2"
+                 HorizontalAlignment="Stretch" />
+
+        
+        <TextBlock Grid.Row="2"
+                   Margin="0 10 0 0"
+                   FontSize="20"
+                   FontWeight="SemiBold"
+                   Text="Password" 
+                   HorizontalAlignment="Left" />
+
+       
+        <TextBox Grid.Row="3"
+                     Margin="0 10 0 0"
+                     FontSize="18"
+                     Padding="10"
+                     Text="{Binding Password}"
+                     VerticalContentAlignment="Center"
+                     BorderBrush="LightGray"
+                     BorderThickness="2"
+                     HorizontalAlignment="Stretch" />
+
+        
+        <Button Grid.Row="4"
+                Margin="0 20 0 0"
+                Padding="10"
+                Content="Login"
+                FontSize="18"
+                FontWeight="Bold"
+                Command="{Binding LoginCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                Background="#4CAF50"
+                Foreground="White"
+                BorderThickness="0"
+                HorizontalAlignment="Center"
+                Width="150"
+                />
+    </Grid>
 </UserControl>

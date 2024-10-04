@@ -1,4 +1,5 @@
 ﻿using PositionControl.Models;
+using PositionControl.ViewModels;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +23,7 @@ namespace PositionControl
             InitializeComponent();
 
             DataContext = new ViewModels.LoginViewModel();
+            
 
 
         }
