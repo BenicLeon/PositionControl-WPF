@@ -6,26 +6,36 @@
              xmlns:local="clr-namespace:PositionControl.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <StackPanel Orientation="Horizontal" Margin="0 10 0 0" >
-            <TextBlock Text="First Name: " FontWeight="Bold" Width="120"/>
-            <TextBlock Text="{Binding Name}" FontWeight="Normal" />
-        </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Margin="0 50 0 0">
-            <TextBlock Text="Last Name: " FontWeight="Bold" Width="120"/>
-            <TextBlock Text="{Binding LastName}" FontWeight="Normal" />
-        </StackPanel>
+    <Grid Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="10" Padding="20" Background="White">
+            <StackPanel>
 
+                
+                <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                    <TextBlock Text="First Name:" FontWeight="SemiBold" FontSize="16" Width="120" VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding Name}" FontWeight="Normal" FontSize="16" VerticalAlignment="Center" />
+                </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Margin="0 100 0 0">
-            <TextBlock Text="Position: " FontWeight="Bold" Width="120"/>
-            <TextBlock Text="{Binding PositionName}" FontWeight="Normal" />
-        </StackPanel>
+                
+                <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                    <TextBlock Text="Last Name:" FontWeight="SemiBold" FontSize="16" Width="120" VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding LastName}" FontWeight="Normal" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Margin="0 150 0 0">
-            <TextBlock Text="Description: " FontWeight="Bold" Width="120"/>
-            <TextBlock Text="{Binding PositionDescription}" FontWeight="Normal" TextWrapping="Wrap" MaxWidth="600"/>
-        </StackPanel>
+               
+                <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                    <TextBlock Text="Position:" FontWeight="SemiBold" FontSize="16" Width="120" VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding PositionName}" FontWeight="Normal" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                
+                <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                    <TextBlock Text="Description:" FontWeight="SemiBold" FontSize="16" Width="120" VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding PositionDescription}" FontWeight="Normal" FontSize="16" TextWrapping="Wrap" MaxWidth="600" VerticalAlignment="Center"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>

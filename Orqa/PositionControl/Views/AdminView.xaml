@@ -6,38 +6,64 @@
              xmlns:local="clr-namespace:PositionControl.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel Margin="20">
-        
-        <TextBlock Text="Users" FontWeight="Bold" FontSize="16"/>
-        <DataGrid ItemsSource="{Binding Users}" 
-                      SelectedItem="{Binding SelectedUser}" 
-                      AutoGenerateColumns="False" Height="200">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}" />
-                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" />
-                <DataGridTextColumn Header="Username" Binding="{Binding Username}" />
-            </DataGrid.Columns>
-        </DataGrid>
+
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            
+            <ColumnDefinition Width="2*" />
+            
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+       
+        <StackPanel Grid.Column="0" Margin="0,0,20,0">
+            
+            <TextBlock Text="Users and Positions" FontWeight="Bold" FontSize="18" Margin="0,0,0,10"/>
+
+            <DataGrid ItemsSource="{Binding UserWorkPositions}" 
+                      SelectedItem="{Binding SelectedUser}"
+                      AutoGenerateColumns="False" Height="200"
+                      CanUserAddRows="False" Margin="0,0,0,20">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}" Width="*" />
+                    <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" Width="*" />
+                    <DataGridTextColumn Header="Position" Binding="{Binding Position}" Width="*" />
+                    <DataGridTextColumn Header="Assign Date" Binding="{Binding AssignDate}" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <TextBlock Text="Add New Position" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+            <TextBlock Text="Position Name:" FontSize="14"/>
+            <TextBox Text="{Binding PositionName, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="0,5,0,10"/>
+
+            <TextBlock Text="Description:" FontSize="14"/>
+            <TextBox Text="{Binding PositionDescription, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="0,5,0,10"/>
+
+            <Button Content="Create Position" Command="{Binding CreatePositionCommand}" Width="150" Margin="0,10,0,20"/>
+
+            
+            <TextBlock Text="Select New Position" FontWeight="Bold" FontSize="16" Margin="0,5,0,5"/>
+            <ComboBox ItemsSource="{Binding AvailablePositions}" DisplayMemberPath="PositionName" 
+                      SelectedItem="{Binding SelectedPosition}" Width="200" Margin="0,5,0,10"/>
+            <Button Content="Change Position" Command="{Binding ChangePositionCommand}" Width="150"/>
+        </StackPanel>
 
         
-        <TextBlock Text="Assigned Position" FontWeight="Bold" FontSize="16" Margin="0,20,0,0"/>
-        <TextBlock Text="{Binding AssignedPosition.WorkPosition.PositionName}" />
-        <TextBlock Text="{Binding AssignedPosition.AssignDate}" />
+        <StackPanel Grid.Column="1">
+            <TextBlock FontSize="18" Text="Create New User" FontWeight="Bold" Margin="0,0,0,10"/>
+            <TextBlock Text="First Name:" FontSize="14"/>
+            <TextBox Width="200" Text="{Binding NewFirstName}" Margin="0,5,0,10"/>
 
-        
-        <TextBlock Text="Assign New Position" FontWeight="Bold" FontSize="16" Margin="0,20,0,0"/>
-        <ComboBox ItemsSource="{Binding Positions}" 
-                      SelectedItem="{Binding SelectedPosition}" 
-                      DisplayMemberPath="PositionName" />
+            <TextBlock Text="Last Name:" FontSize="14"/>
+            <TextBox Width="200" Text="{Binding NewLastName}" Margin="0,5,0,10"/>
 
-        <Button Content="Assign Position" 
-                    Command="{Binding AssignPositionCommand}" 
-                    IsEnabled="{Binding Path=CanAssignPosition}" 
-                    Margin="0,10,0,0" />
+            <TextBlock Text="Username:" FontSize="14"/>
+            <TextBox Width="200" Text="{Binding NewUsername}" Margin="0,5,0,10"/>
 
-        
-        <Button Content="Create New User" 
-                    Command="{Binding CreateUserCommand}" 
-                    Margin="0,10,0,0" />
-    </StackPanel>
+            <TextBlock Text="Password:" FontSize="14"/>
+            <TextBox Width="200" Text="{Binding NewPassword}" Margin="0,5,0,20"/>
+
+            <Button Content="Create User" Command="{Binding CreateUserCommand}" Width="150" Background="#4CAF50" Foreground="White"/>
+        </StackPanel>
+    </Grid>
 </UserControl>

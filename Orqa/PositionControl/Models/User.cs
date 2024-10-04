@@ -15,6 +15,7 @@ namespace PositionControl.Models
         public string PaswordHash { get; set; }
 
         public int RoleId { get; set; }
-        public Role Role { get; set; }  
+        public Role Role { get; set; }
+        public ICollection<UserWorkPosition> UserWorkPositions { get; set; } 
     }
 }
