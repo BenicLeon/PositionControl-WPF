@@ -9,25 +9,25 @@ RoleDescription VARCHAR(255)
 
 CREATE TABLE users(
 Id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-FirstName VARCHAR(40),
-LastName VARCHAR(40),
-Username VARCHAR(40),
-PaswordHash VARCHAR(40),
+FirstName VARCHAR(255),
+LastName VARCHAR(255),
+Username VARCHAR(255),
+PaswordHash VARCHAR(255),
 RoleId INT,
 FOREIGN KEY (RoleId) REFERENCES roles(Id)
 );
 
-CREATE TABLE work_positions(
+CREATE TABLE workpositions(
 Id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-PositionName VARCHAR(40),
+PositionName VARCHAR(255),
 PositionDescription VARCHAR(255)
 );
 
-CREATE TABLE user_work_positions(
+CREATE TABLE userworkpositions(
 Id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
 UserId INT,
 PositionId INT,
-Product VARCHAR(40),
+Product VARCHAR(255),
 AssignDate DATETIME,
 FOREIGN KEY(UserId) REFERENCES users(Id),
 FOREIGN KEY(PositionId) REFERENCES work_positions(Id)
