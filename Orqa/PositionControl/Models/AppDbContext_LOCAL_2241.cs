@@ -40,7 +40,6 @@ namespace PositionControl.Models
             base.OnModelCreating(modelBuilder);
         }
 
-        
 
 
 

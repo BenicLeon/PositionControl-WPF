@@ -22,6 +22,7 @@ namespace PositionControl.Models
         {
             optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         }
+<<<<<<< HEAD
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserWorkPosition>()
@@ -40,7 +41,9 @@ namespace PositionControl.Models
             base.OnModelCreating(modelBuilder);
         }
 
+=======
         
+>>>>>>> c1e0457 (Finished models)
 
 
 
