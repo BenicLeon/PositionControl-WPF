@@ -223,27 +223,47 @@ namespace PositionControl.ViewModels
 
             ExecuteDatabaseAction(context =>
             {
+                if (SelectedUser == null || SelectedPosition == null)
+                {
+                    MessageBox.Show("User or Position is not selected.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                
                 var userWorkPosition = context.UserWorkPositions.FirstOrDefault(uwp => uwp.UserId == SelectedUser.UserId);
 
-                if (userWorkPosition != null)
+                if (userWorkPosition == null)
                 {
-                    userWorkPosition.PositionId = SelectedPosition.Id;
-                }
-                else
-                {
-                    var newUserWorkPosition = new UserWorkPosition
+                    
+                    context.UserWorkPositions.Add(new UserWorkPosition
                     {
                         UserId = SelectedUser.UserId,
                         PositionId = SelectedPosition.Id,
                         AssignDate = DateTime.Now
-                    };
-                    context.UserWorkPositions.Add(newUserWorkPosition);
+                    });
+                }
+                else if (userWorkPosition.PositionId != SelectedPosition.Id)
+                {
+                    
+                    userWorkPosition.PositionId = SelectedPosition.Id;
+                }
+                else
+                {
+                    
+                    MessageBox.Show("The selected position is already assigned to this user.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
                 }
 
+                
                 context.SaveChanges();
                 LoadUsers();
                 MessageBox.Show("Position updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             });
+
+
+
+
+
         }
 
         #endregion
