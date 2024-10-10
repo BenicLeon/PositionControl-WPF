@@ -51,12 +51,14 @@ namespace PositionControl.ViewModels
                 OnPropertyChanged(nameof(PositionDescription));
             }
         }
+       
 
         #endregion
 
         public UserViewModel()
         {
             LoadUserData();
+            
         }
 
         #region Private Methods
